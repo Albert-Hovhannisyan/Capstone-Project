@@ -1,8 +1,8 @@
 from Video import Video
 from Audio import Audio
 
-video_path = "resources/test/video.avi"
-audio_path = "resources/test/audio.wav"
+video_path = "resources/video.avi"
+audio_path = "resources/audio.wav"
 
 video = Video(video_path)
 audio = Audio(audio_path)

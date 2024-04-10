@@ -10,8 +10,10 @@ class Audio:
         self.frames = self.audio.getnframes()
         self.channels = self.audio.getnchannels()
         self.sampwidth = self.audio.getsampwidth()
+
         self.time = self.frames / self.sample_framerate
         self.sample_values_bit = self.audio.readframes(-1)
+
         self.sample_values = np.frombuffer(self.sample_values_bit, dtype=np.int32).copy()
 
     def get_sample_framerate(self):
@@ -48,7 +50,6 @@ class Audio:
 
     def save_audio(self, output_path, new_frames):
         audio = wave.open(output_path, "wb")
-
         new_frames = new_frames.tobytes()
 
         audio.setnchannels(self.channels)
@@ -57,5 +58,5 @@ class Audio:
         audio.setframerate(self.sample_framerate)
 
         audio.writeframes(new_frames)
-
+        
         audio.close()

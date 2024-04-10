@@ -29,7 +29,7 @@ class Video():
         return self.frame_duration
 
     def convert_to_avi(self, output_path):
-        fourcc = cv2.VideoWriter_fourcc(*'MJPG')
+        fourcc = cv2.VideoWriter_fourcc("M", "J", "P", "G")
         output = cv2.VideoWriter(output_path, fourcc, self.fps, (self.frame_width, self.frame_height)) 
 
         boolean = True

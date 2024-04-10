@@ -6,9 +6,9 @@ import random
 seed = 12345
 random.seed(seed)
 
-video_path = "resources/test/video.avi"
-video_frame_path = "resources/test/frame.jpg"
-audio_path = "resources/test/new_audio.wav"
+video_path = "resources/stegano.avi"
+video_frame_path = "resources/frame.jpg"
+audio_path = "resources/ext.wav"
 
 video = Video(video_path)
 audio = Audio(audio_path)

@@ -16,14 +16,14 @@ def stegano_encode(video, audio, start, text, image_path, samples, seed):
         start = int(i * samples_per_frame)
         end = int((i + 1) * samples_per_frame)
 
-        limit = random.randint(0, 200)
-        print(limit)
+        limit = random.randint(100, 200)
         count = 0
 
         for j in range(start, end):
             if len(text) != 0:
                 if count == limit:
                     break
+                
                 if len(str(samples[j])) >= 6:
                     string = str(samples[j])
                     samples[j] = int(string[:-3] + dictionary[text.pop(0)])

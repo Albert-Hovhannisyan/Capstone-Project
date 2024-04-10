@@ -35,8 +35,6 @@ def mapping(source, seed):
             colors[i] = "0" + str(colors[i])
         elif len(colors[i]) == 1:
             colors[i] = "00" + str(colors[i])
-        # else:
-        #     colors[i] = str(colors[i])
 
     # random.shuffle(alphabet)
     random.shuffle(colors)
