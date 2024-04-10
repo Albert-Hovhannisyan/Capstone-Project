@@ -59,4 +59,3 @@ class Audio:
         audio.writeframes(new_frames)
 
         audio.close()
-        print("Done")
