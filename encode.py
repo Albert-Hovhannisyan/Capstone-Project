@@ -18,7 +18,7 @@ audio = Audio(audio_path)
 
 samples = audio.get_sample_values()
 
-video_frame_start = random.randint(0, int(video.get_frame_count() / 2))
+video_frame_start = random.randint(0, int(video.get_frame_count() / 4))
 
 new_sample = stegano_encode(video, audio, video_frame_start, secret_text, video_frame_path, samples, seed)
 
