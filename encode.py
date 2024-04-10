@@ -32,4 +32,5 @@ new_sample = stegano_encode(video, audio, video_frame_start, secret_text, video_
 
 audio.save_audio(new_audio_path, new_sample)
 
+# requires ffmpeg installation 
 attach_wav_to_avi(video_path, new_audio_path, new_video_path)
