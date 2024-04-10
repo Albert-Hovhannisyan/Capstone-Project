@@ -7,12 +7,19 @@ import random
 seed = 12345
 random.seed(seed)
 
-secret_text = "Steganography is the practice of representing information within another message or physical object, in such a manner that the presence of the information is not evident to human inspection. In computing/electronic contexts, a computer file, message, image, or video is concealed within another file, message, image, or video. The word steganography comes from Greek steganographia, which combines the words steganos, meaning covered or concealed, and graphia meaning writing."
-secret_text = list(secret_text.lower())
-
 video_path = "resources/video.avi"
 video_frame_path = "resources/frame.jpg"
 audio_path = "resources/audio.wav"
+text_path = "resources/input.txt"
+
+new_audio_path = "resources/stegano.wav"
+new_video_path = "resources/stegano.avi"
+
+file = open(text_path, "r")
+secret_text = file.read()
+file.close()
+
+secret_text = list(secret_text.lower())
 
 video = Video(video_path)
 audio = Audio(audio_path)
@@ -23,6 +30,6 @@ video_frame_start = random.randint(0, int(video.get_frame_count() / 4))
 
 new_sample = stegano_encode(video, audio, video_frame_start, secret_text, video_frame_path, samples, seed)
 
-audio.save_audio("resources/stegano.wav", new_sample)
+audio.save_audio(new_audio_path, new_sample)
 
-attach_wav_to_avi(video_path, "resources/stegano.wav", "resources/stegano.avi")
+attach_wav_to_avi(video_path, new_audio_path, new_video_path)
