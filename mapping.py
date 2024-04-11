@@ -16,6 +16,7 @@ def mapping(image_source, seed):
     height = image.height
 
     colors = []
+    count = 0
 
     while len(colors) != len(alphabet):
 
@@ -23,10 +24,13 @@ def mapping(image_source, seed):
         y = random.randrange(height)
         value = image.getpixel([x, y])
 
-        if value[0] != value[1] and value[0] != value[2] and value[1] != value[2]:
-            if value[0] not in colors and value[1] not in colors and value[2] not in colors:
-                for i in range(0, 3):
-                    colors.append(value[i])
+        for i in value:
+            if i not in colors:
+                if count != len(alphabet):   
+                    colors.append(i)
+                    count = count + 1
+                else:
+                    break
 
     image.close()
 
