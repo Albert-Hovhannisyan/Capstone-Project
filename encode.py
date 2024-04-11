@@ -22,7 +22,8 @@ file.close()
 
 secret_text = secret_text.encode("ascii")
 secret_text = base64.b64encode(secret_text)
-secret_text = list(str(secret_text))[2:-1]
+secret_text = str(secret_text)[2:-1]
+secret_text = list(secret_text + "|")
 
 video = Video(video_path)
 audio = Audio(audio_path)

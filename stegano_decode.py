@@ -29,11 +29,10 @@ def stegano_decode(video, audio, start, image_path, samples, seed):
                 value = str(samples[j])[-3:]
                 
                 if value in dictionary:
+                    if dictionary[value] == "|":
+                        return text
                     text = text + dictionary[value]
-                    # if text[:-2] == "..":
-                    #     return text
                     count = count + 1
                 else:
                     return text
-
     return text
