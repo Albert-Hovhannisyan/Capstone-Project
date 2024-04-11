@@ -35,7 +35,5 @@ def stegano_decode(video, audio, start, image_path, samples, seed):
                     count = count + 1
                 else:
                     return text
-            
-        # seed = random.randint(min((-1) * seed, seed), max((-1) * seed, seed))
 
     return text
