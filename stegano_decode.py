@@ -18,7 +18,7 @@ def stegano_decode(video, audio, start, image_path, samples, seed):
         start = int(i * samples_per_frame)
         end = int((i + 1) * samples_per_frame)
 
-        limit = random.randint(100, 200)
+        limit = random.randint(100, 300)
         count = 0
 
         for j in range(start, end):
@@ -30,8 +30,8 @@ def stegano_decode(video, audio, start, image_path, samples, seed):
                 
                 if value in dictionary:
                     text = text + dictionary[value]
-                    if text[:-2] == "..":
-                        return text
+                    # if text[:-2] == "..":
+                    #     return text
                     count = count + 1
                 else:
                     return text

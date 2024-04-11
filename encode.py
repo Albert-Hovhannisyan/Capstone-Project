@@ -2,6 +2,7 @@ from Audio import Audio
 from Video import Video
 from stegano_encode import stegano_encode
 from ffmpeg import attach_wav_to_avi
+import base64
 import random
 
 seed = 12345
@@ -19,7 +20,11 @@ file = open(text_path, "r")
 secret_text = file.read()
 file.close()
 
-secret_text = list(secret_text.lower())
+secret_text = secret_text.encode("ascii")
+secret_text = base64.b64encode(secret_text)
+secret_text = list(str(secret_text))[2:-1]
+
+print(secret_text)
 
 video = Video(video_path)
 audio = Audio(audio_path)

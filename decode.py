@@ -2,6 +2,7 @@ from Audio import Audio
 from Video import Video
 from stegano_decode import stegano_decode
 from ffmpeg import extract_wav_from_video
+import base64
 import random
 
 seed = 12345
@@ -23,6 +24,9 @@ samples = audio.get_sample_values()
 video_frame_start = random.randint(int(video.get_frame_count() / 8), int(video.get_frame_count() / 4))
 
 output = stegano_decode(video, audio, video_frame_start, video_frame_path, samples, seed)
+
+output = base64.b64decode(output)
+output = str(output)[2:-1]
 
 print(len(output))
 

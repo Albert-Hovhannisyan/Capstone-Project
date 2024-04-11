@@ -16,7 +16,7 @@ def stegano_encode(video, audio, start, text, image_path, samples, seed):
         start = int(i * samples_per_frame)
         end = int((i + 1) * samples_per_frame)
 
-        limit = random.randint(100, 200)
+        limit = random.randint(100, 300)
         count = 0
 
         for j in range(start, end):
