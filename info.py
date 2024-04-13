@@ -1,5 +1,5 @@
-from Video import Video
-from Audio import Audio
+from Classes.Video import Video
+from Classes.Audio import Audio
 
 video_path = "resources/video.avi"
 audio_path = "resources/audio.wav"

@@ -1,5 +1,4 @@
 import cv2
-from moviepy.editor import VideoFileClip
 
 class Video():
     def __init__(self, path):
@@ -44,7 +43,7 @@ class Video():
         video = cv2.VideoCapture(self.path)
 
         if frame_number < 0 or frame_number >= self.frame_count:
-            print(f"Invalid frame number. Please choose a frame between 0 and {self.frame_count - 1}.")
+            print("Invalid frame number")
             return
 
         video.set(cv2.CAP_PROP_POS_FRAMES, frame_number)

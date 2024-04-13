@@ -1,7 +1,7 @@
-from Audio import Audio
-from Video import Video
-from stegano_decode import stegano_decode
-from ffmpeg import extract_wav_from_video
+from Classes.Audio import Audio
+from Classes.Video import Video
+from Functions.stegano_decode import stegano_decode
+from Functions.ffmpeg import extract_wav_from_video
 import base64
 import random
 

@@ -1,4 +1,4 @@
-from mapping import mapping
+from Functions.mapping import mapping
 import random
 
 def stegano_encode(video, audio, start, text, image_path, samples, seed):    
