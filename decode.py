@@ -28,8 +28,6 @@ output = stegano_decode(video, audio, video_frame_start, video_frame_path, sampl
 output = base64.b64decode(output)
 output = str(output)[2:-1]
 
-print(len(output))
-
 file = open(text_path, "w")
 file.write(output)
 file.close()

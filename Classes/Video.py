@@ -42,10 +42,6 @@ class Video():
     def get_frame(self, frame_number, image_path):
         video = cv2.VideoCapture(self.path)
 
-        if frame_number < 0 or frame_number >= self.frame_count:
-            print("Invalid frame number")
-            return
-
         video.set(cv2.CAP_PROP_POS_FRAMES, frame_number)
         boolean, frame = video.read()
 

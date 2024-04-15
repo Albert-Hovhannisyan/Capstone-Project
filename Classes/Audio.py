@@ -14,7 +14,7 @@ class Audio:
         self.time = self.frames / self.sample_framerate
         self.sample_values_bit = self.audio.readframes(-1)
 
-        self.sample_values = np.frombuffer(self.sample_values_bit, dtype=np.int32).copy()
+        self.sample_values = np.frombuffer(self.sample_values_bit, dtype=np.int16).copy()
 
     def get_sample_framerate(self):
         return self.sample_framerate
@@ -48,15 +48,15 @@ class Audio:
         plt.xlim(start, end)
         plt.show()
 
-    def save_audio(self, output_path, new_frames):
+    def save_audio(self, output_path, new_sample):
         audio = wave.open(output_path, "wb")
-        new_frames = new_frames.tobytes()
+        new_sample = new_sample.tobytes()
 
         audio.setnchannels(self.channels)
         audio.setsampwidth(self.sampwidth)
         audio.setnframes(self.frames)
         audio.setframerate(self.sample_framerate)
 
-        audio.writeframes(new_frames)
+        audio.writeframes(new_sample)
         
         audio.close()
