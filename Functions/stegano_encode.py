@@ -15,21 +15,31 @@ def stegano_encode(video, audio, start, text, image_path, samples, seed):
 
         samples_per_frame = video.get_frame_duration() * audio.get_sample_framerate()
 
-        start = int(i * samples_per_frame)
-        end = int((i + 1) * samples_per_frame)
+        sample_start = int(i * samples_per_frame)
+        sample_end = int((i + 1) * samples_per_frame)
 
         limit = 100
         count = 0
+        j = sample_start
 
-        for j in range(start, end):
+        while j < sample_end:
             if len(text) != 0:
                 if count == limit:
                     break
                 
-                if len(str(abs(samples[j]))) > 3:
-                    string = str(samples[j])
-                    value = text.pop(0)
-                    samples[j] = int(string[:-3] + dictionary[value])
-                    count = count + 1
+                value = dictionary[text.pop(0)]
+
+                k = 0
+                while k < 3:
+                    if abs(samples[j]) > 9:
+                        string = str(samples[j])
+                        samples[j] = int(string[:-1] + value[k])                        
+                        k = k + 1
+                        j = j + 1
+                    else:
+                        j = j + 1
+
+                count = count + 1
+                
             else:
                 return samples
