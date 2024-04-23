@@ -14,7 +14,7 @@ def stegano_decode(video, audio, start, image_path, samples, seed):
         for j in range(len(colors)):
             dictionary[colors[j]] = alphabet[j]
 
-        samples_per_frame = video.get_frame_duration() * audio.get_sample_framerate()
+        samples_per_frame = audio.get_sample_framerate() / video.get_fps()
 
         sample_start = int(i * samples_per_frame)
         sample_end = int((i + 1) * samples_per_frame)

@@ -13,7 +13,6 @@ class Video():
         self.fps = self.video.get(cv2.CAP_PROP_FPS)
         
         self.time = self.frame_count / self.fps
-        self.frame_duration = 1 / self.fps
     
     def get_frame_count(self):
         return self.frame_count
@@ -23,9 +22,6 @@ class Video():
     
     def get_time(self):
         return self.time
-    
-    def get_frame_duration(self):
-        return self.frame_duration
 
     def convert_to_avi(self, output_path):
         fourcc = cv2.VideoWriter_fourcc("M", "J", "P", "G")
