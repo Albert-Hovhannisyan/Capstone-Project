@@ -13,8 +13,11 @@ video_frame_path = "resources/frame.jpg"
 audio_path = "resources/ext.wav"
 text_path = "resources/output.txt"
 
-# requires ffmpeg installation 
-extract_wav_from_video(video_path, audio_path)
+use_ffmpeg = True
+
+if use_ffmpeg == True:
+    # requires ffmpeg installation 
+    extract_wav_from_video(video_path, audio_path)
 
 video = Video(video_path)
 audio = Audio(audio_path)

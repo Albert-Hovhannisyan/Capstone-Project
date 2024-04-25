@@ -6,8 +6,8 @@ class Video():
         self.path = path
         self.video = cv2.VideoCapture(path)
 
-        self.frame_width = int(self.video.get(cv2.CAP_PROP_FRAME_WIDTH)) 
-        self.frame_height = int(self.video.get(cv2.CAP_PROP_FRAME_HEIGHT)) 
+        self.frame_width = int(self.video.get(cv2.CAP_PROP_FRAME_WIDTH))
+        self.frame_height = int(self.video.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
         self.frame_count = int(self.video.get(cv2.CAP_PROP_FRAME_COUNT))
         self.fps = self.video.get(cv2.CAP_PROP_FPS)
@@ -25,14 +25,14 @@ class Video():
 
     def convert_to_avi(self, output_path):
         fourcc = cv2.VideoWriter_fourcc("M", "J", "P", "G")
-        output = cv2.VideoWriter(output_path, fourcc, self.fps, (self.frame_width, self.frame_height)) 
+        output = cv2.VideoWriter(output_path, fourcc, self.fps, (self.frame_width, self.frame_height))
 
         boolean = True
-        while(boolean): 
-            boolean, frame = self.video.read() 
-            output.write(frame) 
+        while(boolean):
+            boolean, frame = self.video.read()
+            output.write(frame)
 
-        self.video.release() 
+        self.video.release()
         output.release()
 
     def get_frame(self, frame_number, image_path):

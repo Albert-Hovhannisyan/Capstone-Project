@@ -26,12 +26,12 @@ print(f'There are {video.get_frame_count()} frames in the video.')
 print(f'The FPS is {video.get_fps()}.\n')
 
 print(f'There are {audio.get_frames()} samples in the audio.')
-print(f'The sample framerate is {audio.get_sample_framerate()}.')
+print(f'The sample rate is {audio.get_sample_framerate()}.\n')
 
-print(f'In one video frame there are approximately {int(audio.get_sample_framerate() / video.get_fps())} audio frames.\n')
+print(f'In one video frame there are approximately {int(audio.get_sample_framerate() / video.get_fps())} audio samples.\n')
 
 print(f'The inputs\'s text length is {len(text)}')
-print(f'The inputs\'s text length in base64 encoeding is {len(text64)}')
+print(f'The inputs\'s text length in base64 encoding is {len(text64)}')
 print(f'{len(text64) * 3} audio samples are needed to hide the data\n')
 
 print(f'The data can be hidden in {video.get_frame_count() - video_frame_start} video frames')
