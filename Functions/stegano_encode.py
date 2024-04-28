@@ -2,8 +2,6 @@ from Functions.mapping import mapping
 import random
 
 def stegano_encode(video, audio, start, text, image_path, samples, seed):    
-
-    random.seed(seed)
     
     for i in range(start, video.get_frame_count()):
         video.get_frame(i, image_path)

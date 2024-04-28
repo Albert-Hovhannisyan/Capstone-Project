@@ -8,7 +8,6 @@ import random
 seed = 12345
 random.seed(seed)
 
-video_path_original = "resources/video.mp4"
 video_path_avi = "resources/video.avi"
 video_frame_path = "resources/frame.jpg"
 audio_path = "resources/audio.wav"
@@ -19,10 +18,6 @@ new_video_path = "resources/stegano.avi"
 
 use_ffmpeg = True
 
-if use_ffmpeg == True:
-    # requires ffmpeg installation 
-    extract_wav_from_video(video_path_original, audio_path)
-
 file = open(text_path, "r")
 secret_text = file.read()
 file.close()
@@ -31,8 +26,6 @@ secret_text = secret_text.encode("ascii")
 secret_text = base64.b64encode(secret_text)
 secret_text = str(secret_text)[2:-1]
 secret_text = list(secret_text + "|")
-
-Video(video_path_original).convert_to_avi(video_path_avi)
 
 video = Video(video_path_avi)
 audio = Audio(audio_path)
@@ -47,4 +40,4 @@ audio.save_audio(new_audio_path, new_sample)
 
 if use_ffmpeg == True:
     # requires ffmpeg installation 
-    attach_wav_to_avi(video_path_avi, new_audio_path, new_video_path)
+    attach_wav_to_avi(video_path_avi, new_audio_path, new_video_path, False)

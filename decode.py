@@ -17,7 +17,7 @@ use_ffmpeg = True
 
 if use_ffmpeg == True:
     # requires ffmpeg installation 
-    extract_wav_from_video(video_path, audio_path)
+    extract_wav_from_video(video_path, audio_path, False)
 
 video = Video(video_path)
 audio = Audio(audio_path)
