@@ -24,7 +24,6 @@ def mapping(image_source):
     height = image.height
 
     colors = []
-    count = 0
 
     while len(colors) != len(alphabet):
 
@@ -34,9 +33,8 @@ def mapping(image_source):
 
         for i in value:
             if i not in colors:
-                if count != len(alphabet):   
+                if len(colors) != len(alphabet):   
                     colors.append(i)
-                    count = count + 1
                 else:
                     break
 
