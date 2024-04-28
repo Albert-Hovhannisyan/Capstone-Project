@@ -26,7 +26,7 @@ samples = audio.get_sample_values()
 
 video_frame_start = random.randint(int(video.get_frame_count() / 8), int(video.get_frame_count() / 4))
 
-output = stegano_decode(video, audio, video_frame_start, video_frame_path, samples, seed)
+output = stegano_decode(video, audio, video_frame_start, video_frame_path, samples)
 
 output = base64.b64decode(output)
 output = str(output)[2:-1]

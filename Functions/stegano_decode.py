@@ -1,13 +1,13 @@
 from Functions.mapping import mapping
 import random
 
-def stegano_decode(video, audio, start, image_path, samples, seed):
+def stegano_decode(video, audio, start, image_path, samples):
 
     text = ""
 
     for i in range(start, video.get_frame_count()):
         video.get_frame(i, image_path)
-        alphabet, colors = mapping(image_path, seed)
+        alphabet, colors = mapping(image_path)
 
         dictionary = {}
         for j in range(len(colors)):

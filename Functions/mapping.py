@@ -2,9 +2,7 @@ from PIL import Image
 import random
 import os
 
-def mapping(image_source, seed):
-
-    random.seed(seed)
+def mapping(image_source):
 
     alphabet = ["A", "B", "C", "D", "E", 
                 "F", "G", "H", "I", "J", 
