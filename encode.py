@@ -40,4 +40,4 @@ audio.save_audio(new_audio_path, new_sample)
 
 if use_ffmpeg == True:
     # requires ffmpeg installation 
-    attach_wav_to_avi(video_path_avi, new_audio_path, new_video_path, False)
+    attach_wav_to_avi(video_path_avi, new_audio_path, new_video_path, hide_output = False)

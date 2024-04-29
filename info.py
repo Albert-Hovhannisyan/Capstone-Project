@@ -18,7 +18,7 @@ if os.path.exists(video_path_avi) == False:
 
 if os.path.exists(audio_path) == False:
     # requires ffmpeg installation 
-    extract_wav_from_video(video_path_original, audio_path, True)
+    extract_wav_from_video(video_path_original, audio_path, hide_output = True)
 
 video = Video(video_path_avi)
 audio = Audio(audio_path)

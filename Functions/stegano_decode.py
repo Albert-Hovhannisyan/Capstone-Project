@@ -1,5 +1,4 @@
 from Functions.mapping import mapping
-import random
 
 def stegano_decode(video, audio, start, image_path, samples):
 
