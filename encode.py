@@ -1,7 +1,7 @@
 from Classes.Audio import Audio
 from Classes.Video import Video
 from Functions.stegano_encode import stegano_encode
-from Functions.ffmpeg import attach_wav_to_avi, extract_wav_from_video
+from Functions.ffmpeg import attach_wav_to_avi
 import base64
 import random
 
