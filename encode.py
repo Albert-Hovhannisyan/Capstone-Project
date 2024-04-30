@@ -30,11 +30,9 @@ secret_text = list(secret_text + "|")
 video = Video(video_path_avi)
 audio = Audio(audio_path)
 
-samples = audio.get_sample_values()
-
 video_frame_start = random.randint(int(video.get_frame_count() / 8), int(video.get_frame_count() / 4))
 
-new_sample = stegano_encode(video, audio, video_frame_start, secret_text, video_frame_path, samples)
+new_sample = stegano_encode(video, audio, video_frame_start, secret_text, video_frame_path)
 
 audio.save_audio(new_audio_path, new_sample)
 

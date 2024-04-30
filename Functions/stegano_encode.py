@@ -1,7 +1,9 @@
 from Functions.mapping import mapping
 
-def stegano_encode(video, audio, start, text, image_path, samples):    
+def stegano_encode(video, audio, start, text, image_path):    
     
+    samples = audio.get_sample_values()
+
     for i in range(start, video.get_frame_count()):
         video.get_frame(i, image_path)
         alphabet, colors = mapping(image_path)
