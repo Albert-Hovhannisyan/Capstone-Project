@@ -1,4 +1,5 @@
 from Functions.mapping import mapping
+import os
 
 def stegano_encode(video, audio, start, text, image_path):    
     
@@ -41,4 +42,5 @@ def stegano_encode(video, audio, start, text, image_path):
                 count = count + 1
                 
             else:
+                os.remove(image_path)
                 return samples

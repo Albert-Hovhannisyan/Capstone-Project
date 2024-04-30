@@ -1,6 +1,5 @@
 from PIL import Image
 import random
-import os
 
 def mapping(image_source):
 
@@ -39,8 +38,6 @@ def mapping(image_source):
                     break
 
     image.close()
-
-    os.remove(image_source)
 
     for i in range(len(colors)):
         colors[i] = str(colors[i])

@@ -30,9 +30,6 @@ class Audio:
     
     def get_sample_values(self):
         return self.sample_values.copy()
-    
-    # def close_audio(self):
-    #     self.audio.close()
 
     def plot_waveform(self, start, end):
         start_sample = (start * self.sample_framerate)

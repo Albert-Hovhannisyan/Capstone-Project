@@ -1,4 +1,5 @@
 from Functions.mapping import mapping
+import os
 
 def stegano_decode(video, audio, start, image_path):
 
@@ -39,6 +40,7 @@ def stegano_decode(video, audio, start, image_path):
                 
             if value in dictionary:
                 if dictionary[value] == "|":
+                    os.remove(image_path)
                     return text
                 text = text + dictionary[value]
                 count = count + 1
