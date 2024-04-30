@@ -6,12 +6,9 @@ def stegano_encode(video, audio, start, text, image_path):
     samples = audio.get_sample_values()
 
     for i in range(start, video.get_frame_count()):
-        video.get_frame(i, image_path)
-        alphabet, colors = mapping(image_path)
 
-        dictionary = {}
-        for j in range(len(alphabet)):
-            dictionary[alphabet[j]] = colors[j]
+        video.get_frame(i, image_path)
+        dictionary = mapping(image_path, method = "encode")
 
         samples_per_frame = audio.get_sample_framerate() / video.get_fps()
 

@@ -1,7 +1,7 @@
 from PIL import Image
 import random
 
-def mapping(image_source):
+def mapping(image_source, method):
 
     alphabet = ["A", "B", "C", "D", "E", 
                 "F", "G", "H", "I", "J", 
@@ -48,5 +48,14 @@ def mapping(image_source):
 
     random.shuffle(alphabet)
     random.shuffle(colors)
+    
+    dictionary = {}
 
-    return alphabet, colors
+    if method == "encode":
+        for j in range(len(alphabet)):
+            dictionary[alphabet[j]] = colors[j]
+    elif method == "decode":
+        for j in range(len(colors)):
+            dictionary[colors[j]] = alphabet[j]
+
+    return dictionary
