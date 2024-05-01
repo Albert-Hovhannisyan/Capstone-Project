@@ -32,13 +32,13 @@ class Audio:
         return self.sample_values.copy()
 
     def plot_waveform(self, start, end):
-        start_sample = (start * self.sample_framerate)
-        end_sample = (end * self.sample_framerate)
+        start_sample = int(start * self.sample_framerate)
+        end_sample = int(end * self.sample_framerate)
 
-        duration = np.linspace(start, end, num=int(end_sample - start_sample))
+        linspace = np.linspace(start, end, num = end_sample - start_sample)
 
         plt.figure(figsize=(10, 5))
-        plt.plot(duration, self.sample_values[int(start_sample):int(end_sample)])
+        plt.plot(linspace, self.sample_values[start_sample:end_sample])
         plt.title("Audio Waveform")
         plt.ylabel("Samples")
         plt.xlabel("Seconds")
