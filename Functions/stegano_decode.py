@@ -31,9 +31,8 @@ def stegano_decode(video, audio, start, image_path):
                 if abs(samples[j]) > 9:
                     value = value + str(samples[j])[-1]
                     k = k + 1
-                    j = j + 1
-                else:
-                    j = j + 1
+
+                j = j + 1
                 
             if value in dictionary:
                 if dictionary[value] == "|":
