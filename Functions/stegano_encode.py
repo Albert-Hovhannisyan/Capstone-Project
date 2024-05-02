@@ -32,9 +32,8 @@ def stegano_encode(video, audio, start, text, image_path):
                         string = str(samples[j])
                         samples[j] = int(string[:-1] + value[k])                        
                         k = k + 1
-                        j = j + 1
-                    else:
-                        j = j + 1
+
+                    j = j + 1
 
                 count = count + 1
                 
