@@ -3,7 +3,7 @@ import random
 
 def mapping(image_source, method):
 
-    alphabet = ["A", "B", "C", "D", "E", 
+    characters = ["A", "B", "C", "D", "E", 
                 "F", "G", "H", "I", "J", 
                 "K", "L", "M", "N", "O", 
                 "P", "Q", "R", "S", "T", 
@@ -24,7 +24,7 @@ def mapping(image_source, method):
 
     colors = []
 
-    while len(colors) != len(alphabet):
+    while len(colors) != len(characters):
 
         x = random.randrange(width)
         y = random.randrange(height)
@@ -32,7 +32,7 @@ def mapping(image_source, method):
 
         for i in value:
             if i not in colors:
-                if len(colors) != len(alphabet):   
+                if len(colors) != len(characters):   
                     colors.append(i)
                 else:
                     break
@@ -46,16 +46,16 @@ def mapping(image_source, method):
         elif len(colors[i]) == 1:
             colors[i] = "00" + str(colors[i])
 
-    random.shuffle(alphabet)
+    random.shuffle(characters)
     random.shuffle(colors)
     
     dictionary = {}
 
     if method == "encode":
-        for j in range(len(alphabet)):
-            dictionary[alphabet[j]] = colors[j]
+        for j in range(len(characters)):
+            dictionary[characters[j]] = colors[j]
     elif method == "decode":
         for j in range(len(colors)):
-            dictionary[colors[j]] = alphabet[j]
+            dictionary[colors[j]] = characters[j]
 
     return dictionary
