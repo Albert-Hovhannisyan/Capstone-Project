@@ -45,7 +45,7 @@ print(f'The input text length in base64 encoding is {len(text64)} characters\n')
 
 print(f'The number of audio samples needed to hide the data is {len(text64) * 3} samples\n')
 
-print(f'Totally the data can be hidden in {video.get_frame_count() - video_frame_start} video frames')
-print(f'The minimum amount of video frames in which the data will be hidden is {int(len(text64) / 100)}')
+print(f'The total amount of available video frames for hiding the data is {video.get_frame_count() - video_frame_start} frames')
+print(f'The minimum amount of video frames in which the data will be hidden is {int(len(text64) / 100)} frames')
 
 file.close()
