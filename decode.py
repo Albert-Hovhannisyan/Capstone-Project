@@ -13,6 +13,8 @@ video_frame_path = "resources/frame.jpg"
 audio_path = "resources/ext.wav"
 text_path = "resources/output.txt"
 
+limit = 100
+
 use_ffmpeg = True
 
 if use_ffmpeg == True:
@@ -24,7 +26,7 @@ audio = Audio(audio_path)
 
 video_frame_start = random.randint(int(video.get_frame_count() / 8), int(video.get_frame_count() / 4))
 
-output = stegano_decode(video, audio, video_frame_start, video_frame_path)
+output = stegano_decode(video, audio, video_frame_start, video_frame_path, limit)
 
 output = base64.b64decode(output)
 output = str(output)[2:-1]

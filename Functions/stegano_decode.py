@@ -1,7 +1,7 @@
 from Functions.mapping import mapping
 import os
 
-def stegano_decode(video, audio, start, image_path):
+def stegano_decode(video, audio, start, image_path, limit):
 
     samples = audio.get_sample_values()
     text = ""
@@ -16,7 +16,6 @@ def stegano_decode(video, audio, start, image_path):
         sample_start = int(i * samples_per_frame)
         sample_end = int((i + 1) * samples_per_frame)
 
-        limit = 100
         count = 0
         j = sample_start
 

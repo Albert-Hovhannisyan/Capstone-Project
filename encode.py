@@ -16,6 +16,8 @@ text_path = "resources/input.txt"
 new_audio_path = "resources/stegano.wav"
 new_video_path = "resources/stegano.avi"
 
+limit = 100
+
 use_ffmpeg = True
 
 file = open(text_path, "r")
@@ -32,7 +34,7 @@ audio = Audio(audio_path)
 
 video_frame_start = random.randint(int(video.get_frame_count() / 8), int(video.get_frame_count() / 4))
 
-new_sample = stegano_encode(video, audio, video_frame_start, secret_text, video_frame_path)
+new_sample = stegano_encode(video, audio, video_frame_start, secret_text, video_frame_path, limit)
 
 audio.save_audio(new_audio_path, new_sample)
 
