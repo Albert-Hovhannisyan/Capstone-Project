@@ -1,14 +1,16 @@
 from Functions.mapping import mapping
 import os
 
-def stegano_encode(video, audio, start, text, image_path, limit):    
+def stegano_encode(video, audio, start, text, limit):
+
+    video_frame_path = "resources/tmp.jpg"    
     
     samples = audio.get_sample_values()
 
     for i in range(start, video.get_frame_count()):
 
-        video.get_frame(i, image_path)
-        dictionary = mapping(image_path, method = "encode")
+        video.get_frame(i, video_frame_path)
+        dictionary = mapping(video_frame_path, method = "encode")
 
         samples_per_frame = audio.get_sample_framerate() / video.get_fps()
 
@@ -37,5 +39,5 @@ def stegano_encode(video, audio, start, text, image_path, limit):
                 count = count + 1
                 
             else:
-                os.remove(image_path)
+                os.remove(video_frame_path)
                 return samples

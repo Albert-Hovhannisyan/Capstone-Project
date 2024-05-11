@@ -9,7 +9,6 @@ seed = 12345
 random.seed(seed)
 
 video_path_avi = "resources/video.avi"
-video_frame_path = "resources/frame.jpg"
 audio_path = "resources/audio.wav"
 text_path = "resources/input.txt"
 
@@ -34,7 +33,7 @@ audio = Audio(audio_path)
 
 video_frame_start = random.randint(int(video.get_frame_count() / 8), int(video.get_frame_count() / 4))
 
-new_sample = stegano_encode(video, audio, video_frame_start, secret_text, video_frame_path, limit)
+new_sample = stegano_encode(video, audio, video_frame_start, secret_text, limit)
 
 audio.save_audio(new_audio_path, new_sample)
 

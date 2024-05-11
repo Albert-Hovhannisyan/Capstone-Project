@@ -1,15 +1,17 @@
 from Functions.mapping import mapping
 import os
 
-def stegano_decode(video, audio, start, image_path, limit):
+def stegano_decode(video, audio, start, limit):
+
+    video_frame_path = "resources/tmp.jpg"
 
     samples = audio.get_sample_values()
     text = ""
 
     for i in range(start, video.get_frame_count()):
 
-        video.get_frame(i, image_path)
-        dictionary = mapping(image_path, method = "decode")
+        video.get_frame(i, video_frame_path)
+        dictionary = mapping(video_frame_path, method = "decode")
 
         samples_per_frame = audio.get_sample_framerate() / video.get_fps()
 
@@ -35,7 +37,7 @@ def stegano_decode(video, audio, start, image_path, limit):
                 
             if value in dictionary:
                 if dictionary[value] == "|":
-                    os.remove(image_path)
+                    os.remove(video_frame_path)
                     return text
                 text = text + dictionary[value]
                 count = count + 1

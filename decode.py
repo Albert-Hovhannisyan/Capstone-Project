@@ -9,7 +9,6 @@ seed = 12345
 random.seed(seed)
 
 video_path = "resources/stegano.avi"
-video_frame_path = "resources/frame.jpg"
 audio_path = "resources/ext.wav"
 text_path = "resources/output.txt"
 
@@ -26,7 +25,7 @@ audio = Audio(audio_path)
 
 video_frame_start = random.randint(int(video.get_frame_count() / 8), int(video.get_frame_count() / 4))
 
-output = stegano_decode(video, audio, video_frame_start, video_frame_path, limit)
+output = stegano_decode(video, audio, video_frame_start, limit)
 
 output = base64.b64decode(output)
 output = str(output)[2:-1]
