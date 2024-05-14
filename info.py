@@ -13,6 +13,8 @@ video_path_avi = "resources/video.avi"
 audio_path = "resources/audio.wav"
 text_path = "resources/input.txt"
 
+limit = 100
+
 if os.path.exists(video_path_avi) == False:
     Video(video_path_original).convert_to_avi(video_path_avi)
 
@@ -46,6 +48,6 @@ print(f'The input text length in base64 encoding is {len(text64)} characters\n')
 print(f'The number of audio samples needed to hide the data is {len(text64) * 3} samples\n')
 
 print(f'The total amount of available video frames for hiding the data is {video.get_frame_count() - video_frame_start} frames')
-print(f'The minimum amount of video frames in which the data will be hidden is {int(len(text64) / 100)} frames')
+print(f'The minimum amount of video frames in which the data will be hidden is {int(len(text64) / limit)} frames')
 
 file.close()
