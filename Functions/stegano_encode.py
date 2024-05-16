@@ -3,7 +3,7 @@ import os
 
 def stegano_encode(video, audio, start, text, limit):
 
-    video_frame_path = "resources/tmp.jpg"    
+    video_frame_path = "tmp.jpg"    
     
     samples = audio.get_sample_values()
 
@@ -24,10 +24,10 @@ def stegano_encode(video, audio, start, text, limit):
             if len(text) != 0:
                 if count == limit:
                     break
-                
-                value = dictionary[text.pop(0)]
 
                 k = 0
+                value = dictionary[text.pop(0)]
+
                 while k < 3:
                     if abs(samples[j]) > 9:
                         string = str(samples[j])

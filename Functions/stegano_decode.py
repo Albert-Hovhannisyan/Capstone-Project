@@ -3,7 +3,7 @@ import os
 
 def stegano_decode(video, audio, start, limit):
 
-    video_frame_path = "resources/tmp.jpg"
+    video_frame_path = "tmp.jpg"
 
     samples = audio.get_sample_values()
     text = ""
@@ -39,5 +39,7 @@ def stegano_decode(video, audio, start, limit):
                 if dictionary[value] == "|":
                     os.remove(video_frame_path)
                     return text
-                text = text + dictionary[value]
-                count = count + 1
+                
+                else:
+                    text = text + dictionary[value]
+                    count = count + 1
